@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Counter from './Counter'
+import TypeAhead from './TypeAhead'
 import './App.css'
 
 class App extends Component {
@@ -9,8 +10,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to Stuff I Learned</h1>
         </header>
-        <div>
+        <div className='app-container'>
           <Counter />
+          <TypeAhead />
         </div>
       </div>
     );

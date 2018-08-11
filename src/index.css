@@ -5,6 +5,12 @@ body {
   font-family: Arial;
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .counter-container {
   padding: 50px 0;
   display: flex;
@@ -38,12 +44,51 @@ body {
 }
 
 .decrement-button:hover {
-  background: #ea9849;
+  background: peru;
 }
-
 
 .count {
   font-size: 1.5rem;
   font-weight: bold;
   color: peru;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.search-button {
+  padding: 10px;
+  margin: 20px;
+  background: #333;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  width: 200px;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  background: #333;
+  color: white;
+  width: 300px;
+  font-size: .8rem;
+}
+
+input {
+  height: 30px;
+  width: 300px;
+
+  border-style:solid;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid black;
+  font-size: 1.5rem;
+  outline: transparent;
 }
