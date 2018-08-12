@@ -7,9 +7,19 @@ type Props = {
   results: []
 }
 
+const makeResults = (items) => {
+  return items.map(item => {
+    return(
+      <div className='search-result' key={item.id}>
+        <a href={item.url}>{item.full_name}</a>
+      </div>
+    )
+  })
+}
+
 const SearchResults = ({ searchTerm, results }) => (
   <div className='search-results'>
-    {searchTerm}
+    searched for ... {searchTerm}
     {results}
   </div>
 )
@@ -17,36 +27,20 @@ const SearchResults = ({ searchTerm, results }) => (
 export default compose(
   withState('results', 'setState', []),
   lifecycle({
-    componentDidMount () {
-      console.log('in did mount', this.props.searchTerm)
-    },
     componentDidUpdate (prevProps, preState) {
-      console.log('props', this.props.searchTerm, 'prevProps', prevProps.searchTerm)
+      if (this.props.searchTerm.length > 3 && (this.props.searchTerm !== prevProps.searchTerm) ) {
+        const url = new Request(`https://api.github.com/search/repositories?q=${prevProps.searchTerm}`)
 
-      if (this.props.searchTerm !== prevProps.searchTerm) {
-        const myHeaders = new Headers()
-        myHeaders.append('Content-Type', 'url')
-
-        const myInit = { method: 'GET',
-                       headers: myHeaders,
-                       mode: 'cors',
-                       cache: 'default' }
-
-        let url = new Request(`https://api.github.com/search/repositories?q=${prevProps.searchTerm}`)
-
-        fetch(url, myInit)
+        fetch(url)
         .then(results => {
           return results.json()
         }).then(data => {
-          console.log('data', data)
-          let results = data.items.map(item => {
-            return(
-              <div key={uniqueId}>
-                <a href={item.url}>{item.full_name}</a>
-              </div>
-            )
-          })
-          this.setState({ results })
+          let dataItems = (data && data.items.length > 1) ? data.items : []
+          let results
+          if (dataItems.length) {
+            results = makeResults(dataItems)
+            this.setState({ results })
+          }
         })
       }
     }

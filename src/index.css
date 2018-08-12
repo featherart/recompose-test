@@ -14,43 +14,55 @@ body {
 .counter-container {
   padding: 50px 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .increment-button {
   padding: 10px;
   margin: 20px;
-  background: peru;
+  background: lightseagreen;
   font-size: 1rem;
   font-weight: bold;
   color: white;
   border: none;
+  border-radius: 3px;
 }
 
 .increment-button:hover {
-  background: aqua;
+  background: cadetblue;
 }
 
 .decrement-button {
   padding: 10px;
   margin: 20px;
-  background: aqua;
+  background: coral;
   font-size: 1rem;
   font-weight: bold;
   color: white;
   border: none;
+  border-radius: 3px;
 }
 
 .decrement-button:hover {
-  background: peru;
+  background: tomato;
 }
 
 .count {
   font-size: 1.5rem;
   font-weight: bold;
-  color: peru;
+  color: paleturquoise;
+  width: 105px;
+  height: 32px;
+  border-radius: 3px;
+  background: #333;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
 }
 
 .search-container {
@@ -59,7 +71,7 @@ body {
 }
 
 .search-button {
-  padding: 10px;
+  padding: 25px;
   margin: 20px;
   background: #333;
   font-size: 1rem;
@@ -70,6 +82,7 @@ body {
 }
 
 .search-results {
+  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,8 +90,24 @@ body {
   font-size: 1rem;
   background: #333;
   color: white;
-  width: 300px;
-  font-size: .8rem;
+  width: 400px;
+  font-size: 1rem;
+  border-radius: 3px;
+  font-weight: 400;
+  font-variant: small-caps;
+}
+
+a {
+  text-decoration: none;
+  color: paleturquoise;
+}
+
+a:hover {
+  color: darkturquoise;
+}
+
+.search-result {
+  padding-top: 15px;
 }
 
 input {
