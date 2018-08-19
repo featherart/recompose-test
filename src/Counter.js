@@ -9,10 +9,13 @@ type Props = {
 }
 
 const Counter = ({ count, incrementCount, handleIncrement, handleDecrement }: Props) => (
-  <div className='counter-container'>
-    <button type='submit' className='increment-button' onClick={handleIncrement}>Increment</button>
-    <button type='submit' className='decrement-button' onClick={handleDecrement}>Decrement</button>
-    <span className='count'>{count}</span>
+  <div className='contained'>
+    <h3>Counter</h3>
+    <div className='counter-container'>
+      <button type='submit' className='increment-button' onClick={handleIncrement}>Increment</button>
+      <button type='submit' className='decrement-button' onClick={handleDecrement}>Decrement</button>
+      <span className='count'>{count}</span>
+    </div>
   </div>
 )
 

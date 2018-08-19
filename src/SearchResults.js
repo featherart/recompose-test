@@ -1,28 +1,27 @@
 import React from 'react'
 import { compose, lifecycle, withState } from 'recompose'
-import { uniqueId } from 'lodash'
 
 type Props = {
   searchTerm: string,
   results: []
 }
 
-const makeResults = (items) => {
-  return items.map(item => {
-    return(
-      <div className='search-result' key={item.id}>
-        <a href={item.url}>{item.full_name}</a>
-      </div>
-    )
-  })
-}
-
-const SearchResults = ({ searchTerm, results }) => (
+const SearchResults = ({ searchTerm, results }: Props) => (
   <div className='search-results'>
     searched for ... {searchTerm}
     {results}
   </div>
 )
+
+const makeResults = (items) => {
+  return items.map(item => {
+    return(
+      <div className='search-result' key={item.id}>
+        <a href={item.html_url}>{item.full_name}</a>
+      </div>
+    )
+  })
+}
 
 export default compose(
   withState('results', 'setState', []),
