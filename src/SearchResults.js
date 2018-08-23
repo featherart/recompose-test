@@ -35,7 +35,7 @@ export default compose(
         .then(results => {
           return results.json()
         }).then(data => {
-          let dataItems = (data && data.items.length > 1) ? data.items : []
+          let dataItems = (data && data.items && data.items.length > 1) ? data.items : []
           let results
           if (dataItems.length) {
             results = makeResults(dataItems)

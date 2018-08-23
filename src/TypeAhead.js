@@ -24,6 +24,7 @@ export default compose(
       let input = document.getElementById('search')
       const observable = fromEvent(input, 'input')
         .pipe(map(i => i.currentTarget.value))
+
       observable
         .pipe(debounceTime(100))
         .subscribe(searchTerm => setSearchTerm(searchTerm))
